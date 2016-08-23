@@ -73,7 +73,7 @@ class ViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegate, 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         CLGeocoder().geocodeAddressString(searchbar.text!){ (placemarks, error) in
             if let coordinate = placemarks?.first?.location?.coordinate {
-                self.dest = coordinate
+                    self.dest = coordinate
             
                 //TODO: 更換目的時重新繪製路線
             }
@@ -97,6 +97,7 @@ class ViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegate, 
             return
         }
         
+        //還沒設定目的地，get out
         //guard 類似 if，只要掉進去一定要中斷
         guard let dest = self.dest else {
             return
